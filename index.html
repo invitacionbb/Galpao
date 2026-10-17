@@ -1,0 +1,3239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galpão do Brasil Durango | Auténtico Rodízio de Espadas al Carbón & Banquetes VIP</title>
+  <meta name="description" content="Vive el verdadero buffet de espadas brasileñas al carbón en Victoria de Durango. +15 cortes en mesa, barra de 16 ensaladas, sushi, pizzas brasileñas, cava de vinos y Banquetes VIP a domicilio. Plaza Jardines, Blvd. Francisco Villa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. TOKENS DE DISEÑO & VARIABLES CSS (ESTILO EDITORIAL MINIMALISTA "FERTILE")
+       ========================================================================== */
+    :root {
+      --bg-forest: #072B1B;         /* Verde Selva Brasileño Profundo (Hero & Secciones Clave) */
+      --bg-forest-deep: #041D12;    /* Verde Oscuro Nocturno */
+      --bg-forest-card: #0B3824;    /* Verde Tarjeta Sutil */
+      --bg-charcoal: #0B130E;       /* Carbón Profundo para Cava & Banquetes VIP */
+      --bg-cream: #F5EFE6;          /* Crema Hueso Editorial para lectura limpia */
+      --bg-cream-card: #FFFFFF;     /* Blanco Puro sobre Crema */
+
+      --text-cream: #F4EFE6;        /* Tipografía Principal sobre Verde */
+      --text-cream-muted: #B6C7BD;  /* Subtítulos suaves sobre Verde */
+      --text-dark: #091E13;         /* Tipografía Oscura sobre Crema */
+      --text-dark-muted: #4A5D52;   /* Texto secundario sobre Crema */
+
+      --accent-gold: #F5B82E;       /* Amarillo Oro Brasileño */
+      --accent-gold-hover: #FFCA4B;
+      --accent-ember: #E04F26;      /* Rojo Brasa / Terracota Fuego (CTA Principal) */
+      --accent-ember-hover: #F25F35;
+
+      --border-subtle: rgba(244, 239, 230, 0.12);
+      --border-dark: rgba(9, 30, 19, 0.1);
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-pill: 9999px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --transition-smooth: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-forest);
+      color: var(--text-cream);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      overflow-x: hidden;
+      background-color: var(--bg-forest);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Sin filtro de grano para que los fondos luzcan 100% reales */
+    .noise-overlay {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ==========================================================================
+       2. NAVBAR MINIMALISTA (INSPIRACIÓN 1:1 REFERENCIA)
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.scrolled {
+      background: rgba(7, 43, 27, 0.92);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-img {
+      height: 46px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      transition: var(--transition-smooth);
+    }
+
+    .brand-logo-wrap:hover .brand-logo-img {
+      transform: scale(1.04);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-cream);
+      opacity: 0.88;
+      position: relative;
+      padding: 4px 0;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--accent-gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-gold-pill {
+      background: var(--accent-gold);
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: var(--transition-smooth);
+      box-shadow: 0 8px 24px rgba(245, 184, 46, 0.22);
+    }
+
+    .btn-gold-pill:hover {
+      background: var(--accent-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(245, 184, 46, 0.35);
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION (FONDO01 100% REAL + DESTELLOS + PICAÑA PNG + FUEGO DETRÁS)
+       ========================================================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 0 60px 0;
+      background-color: var(--bg-forest);
+      background-image: url('assets/images/fondo01.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Contenedor de chispas / destellos flotantes sobre todo el fondo del Hero */
+    .embers-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-stage {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+      overflow: visible;
+    }
+
+    /* Picaña PNG Flotante Grandota sobre todo el fondo (SIN cuadro ni límites) */
+    .hero-visual-center {
+      grid-column: 1 / 8;
+      grid-row: 1;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    /* Brasas y Fuego Vivo Detrás de la Picaña Flotante */
+    .hero-fire-backdrop {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 680px;
+      height: 760px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Halo de brasa incandescente exterior */
+    .fire-core-glow {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse 58% 64% at 52% 56%,
+        rgba(255, 110, 20, 0.58) 0%,
+        rgba(224, 79, 38, 0.38) 34%,
+        rgba(245, 184, 46, 0.18) 58%,
+        rgba(7, 43, 27, 0) 78%);
+      filter: blur(28px);
+      animation: pulseFireCore 3.6s ease-in-out infinite alternate;
+    }
+
+    /* Llamaradas orgánicas ascendentes detrás de la carne */
+    .fire-flames-layer {
+      position: absolute;
+      bottom: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 460px;
+      height: 560px;
+      background:
+        radial-gradient(ellipse 42% 58% at 50% 72%, rgba(255, 210, 70, 0.65) 0%, rgba(255, 94, 14, 0.45) 45%, transparent 75%),
+        radial-gradient(ellipse 35% 50% at 34% 62%, rgba(224, 79, 38, 0.55) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 50% at 68% 60%, rgba(245, 158, 11, 0.5) 0%, transparent 70%);
+      filter: blur(16px);
+      mix-blend-mode: screen;
+      animation: danceFlames 2.4s ease-in-out infinite alternate;
+    }
+
+    /* Cama de brasas ardientes en la base de la espada */
+    .fire-embers-bed {
+      position: absolute;
+      bottom: 4%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 420px;
+      height: 150px;
+      background: radial-gradient(ellipse 65% 50% at 50% 50%,
+        rgba(255, 230, 110, 0.75) 0%,
+        rgba(255, 82, 20, 0.62) 42%,
+        rgba(180, 30, 10, 0.25) 70%,
+        transparent 100%);
+      filter: blur(14px);
+      mix-blend-mode: screen;
+      animation: glowEmbersBed 2s ease-in-out infinite alternate;
+    }
+
+    .fire-svg-tongues {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 540px;
+      opacity: 0.78;
+      filter: blur(4px) drop-shadow(0 0 24px rgba(255, 100, 20, 0.75));
+      mix-blend-mode: screen;
+      animation: flickerTongues 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseFireCore {
+      0% { transform: scale(0.94); opacity: 0.82; }
+      100% { transform: scale(1.08); opacity: 1; }
+    }
+
+    @keyframes danceFlames {
+      0% { transform: translateX(-50%) scale(0.95, 0.92) skewX(-2deg); opacity: 0.85; }
+      50% { transform: translateX(-49%) scale(1.03, 1.06) skewX(2deg); opacity: 1; }
+      100% { transform: translateX(-51%) scale(0.98, 1.03) skewX(-1deg); opacity: 0.9; }
+    }
+
+    @keyframes glowEmbersBed {
+      0% { opacity: 0.75; transform: translateX(-50%) scaleX(0.94); }
+      100% { opacity: 1; transform: translateX(-50%) scaleX(1.08); }
+    }
+
+    @keyframes flickerTongues {
+      0% { transform: translateX(-50%) scaleY(0.94) rotate(-1deg); }
+      100% { transform: translateX(-50%) scaleY(1.07) rotate(1.5deg); }
+    }
+
+    /* Imagen PNG de la Picaña Grandota Fija sobre el Fuego */
+    .hero-floating-picana {
+      position: relative;
+      z-index: 3;
+      width: auto;
+      height: clamp(540px, 86vh, 880px);
+      max-width: none;
+      object-fit: contain;
+      transform: translateX(-40px) rotate(-2deg);
+      filter:
+        drop-shadow(0 22px 45px rgba(0, 0, 0, 0.75))
+        drop-shadow(0 0 42px rgba(224, 79, 38, 0.55))
+        drop-shadow(0 -8px 28px rgba(245, 184, 46, 0.32))
+        contrast(1.05) saturate(1.1);
+      pointer-events: auto;
+    }
+
+    /* Badge de brasa en vivo */
+    .sizzle-badge {
+      background: rgba(4, 29, 18, 0.84);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 184, 46, 0.38);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      margin-bottom: 18px;
+    }
+
+    .sizzle-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-ember);
+      box-shadow: 0 0 10px var(--accent-ember);
+      animation: blinkDot 1.4s infinite;
+    }
+
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* Bloque Tipográfico Monumental superpuesto a la derecha */
+    .hero-copy-block {
+      grid-column: 6 / 13;
+      grid-row: 1;
+      position: relative;
+      z-index: 4;
+      padding-left: 10px;
+      text-align: left;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--text-cream);
+      margin-bottom: 24px;
+      text-shadow: 0 12px 36px rgba(4, 29, 18, 0.85);
+    }
+
+    .hero-headline .highlight-italic {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .hero-subtext {
+      font-size: 1.12rem;
+      color: var(--text-cream);
+      opacity: 0.94;
+      max-width: 470px;
+      margin-bottom: 32px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
+    }
+
+    /* Botón Compuesto Estilo "Fertile" (Píldora Rojo Brasa + Círculo Crema con Flecha) */
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-fertile-combo {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0;
+      font-family: var(--font-sans);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .btn-fertile-pill {
+      background: var(--accent-ember);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 28px rgba(224, 79, 38, 0.38);
+    }
+
+    .btn-fertile-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--text-cream);
+      color: var(--bg-forest);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: -10px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      transition: var(--transition-smooth);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .btn-fertile-combo:hover .btn-fertile-pill {
+      background: var(--accent-ember-hover);
+      padding-right: 34px;
+    }
+
+    .btn-fertile-combo:hover .btn-fertile-circle {
+      transform: translateX(4px) rotate(45deg);
+      background: var(--accent-gold);
+    }
+
+    .btn-outline-cream {
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid rgba(244, 239, 230, 0.35);
+      color: var(--text-cream);
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: rgba(7, 43, 27, 0.45);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Micro-Elementos Editoriales en las Esquinas del Hero (1:1 con Referencia) */
+    .hero-corner-top-right {
+      position: absolute;
+      top: 12px;
+      right: 0;
+      max-width: 230px;
+      z-index: 5;
+    }
+
+    .quote-marks {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      line-height: 0.7;
+      color: var(--accent-gold);
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .hero-corner-top-right p {
+      font-size: 0.95rem;
+      line-height: 1.38;
+      color: var(--text-cream);
+      font-weight: 400;
+    }
+
+    .hero-corner-bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      max-width: 240px;
+      z-index: 5;
+    }
+
+    .stat-editorial-gold {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .hero-corner-bottom-left p {
+      font-size: 0.84rem;
+      color: var(--text-cream-muted);
+      line-height: 1.35;
+    }
+
+    /* Acento gráfico orgánico amarillo abajo a la derecha (como la flor/llama de Fertile) */
+    .hero-organic-motif {
+      position: absolute;
+      bottom: -36px;
+      right: 28px;
+      width: 170px;
+      height: 170px;
+      z-index: 2;
+      pointer-events: none;
+      animation: floatSlow 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-12px) rotate(6deg); }
+    }
+
+    /* ==========================================================================
+       4. SECCIÓN: EL SEMÁFORO DEL RODÍZIO (FONDO02 100% REAL CON EFECTO PARALLAX)
+       ========================================================================== */
+    .section-rodizio {
+      padding: 100px 0;
+      background-color: var(--bg-forest-deep);
+      background-image: url('assets/images/fondo02.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .section-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .semaforo-interactive-box {
+      background: rgba(11, 56, 36, 0.84);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 26px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 52px;
+      flex-wrap: nowrap;
+      min-height: 144px;
+    }
+
+    .disco-widget {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .disco-text-content {
+      flex: 1;
+      max-width: 680px;
+      min-height: 92px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .disco-circle {
+      width: 84px;
+      height: 84px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #16A34A;
+      border: 4px solid #F4EFE6;
+      box-shadow: 0 0 30px rgba(22, 163, 74, 0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease, box-shadow 0.35s ease;
+      user-select: none;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    .disco-circle.is-red {
+      background: #DC2626;
+      box-shadow: 0 0 30px rgba(220, 38, 38, 0.55);
+      transform: rotateY(180deg);
+    }
+
+    .disco-circle.is-red span {
+      transform: rotateY(-180deg);
+    }
+
+    .steps-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .step-minimal-card {
+      background: rgba(4, 29, 18, 0.68);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: visible;
+    }
+
+    .step-minimal-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 184, 46, 0.45);
+      background: rgba(7, 43, 27, 0.82);
+    }
+
+    /* Imágenes flotantes en la esquina superior derecha de las tarjetas 01, 02 y 03 */
+    .step-corner-img {
+      position: absolute;
+      top: -38px;
+      right: -16px;
+      width: 142px;
+      height: 142px;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.94;
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.6));
+      transition: var(--transition-smooth);
+    }
+
+    .step-minimal-card:hover .step-corner-img {
+      transform: translateY(-6px) scale(1.07) rotate(3deg);
+    }
+
+    .step-num-serif {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 2.4rem;
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 14px;
+      padding-right: 110px;
+    }
+
+    .step-minimal-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-cream);
+      padding-right: 95px;
+    }
+
+    .step-minimal-card p {
+      font-size: 0.95rem;
+      color: var(--text-cream-muted);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       5. SECCIÓN FUSIONADA: ESPADAS & BAR DE BEBIDAS (FONDO01 100% REAL PARALLAX)
+       ========================================================================== */
+    .section-menu {
+      padding: 110px 0;
+      background-color: var(--bg-forest);
+      background-image: url('assets/images/fondo01.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .filter-btn {
+      background: rgba(4, 29, 18, 0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-cream);
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-gold);
+      color: var(--text-dark);
+      border-color: var(--accent-gold);
+      box-shadow: 0 6px 20px rgba(245, 184, 46, 0.25);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 26px;
+    }
+
+    .product-card {
+      background: rgba(4, 29, 18, 0.84);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(245, 184, 46, 0.45);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #03150C;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .product-badge-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 43, 27, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--accent-gold);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 184, 46, 0.3);
+    }
+
+    .product-status-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: var(--accent-ember);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    .product-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--text-cream);
+      margin-bottom: 8px;
+    }
+
+    .product-body p {
+      font-size: 0.92rem;
+      color: var(--text-cream-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       6. SECCIÓN DESTACADA: BARRA DE BEBIDAS, MIXOLOGÍA & CAVA DE VINOS (FUSIONADA EN FONDO01)
+       ========================================================================== */
+    .cava-showcase {
+      margin-top: 72px;
+      background: linear-gradient(135deg, rgba(8, 28, 18, 0.86) 0%, rgba(4, 18, 11, 0.9) 100%);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(245, 184, 46, 0.32);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .cava-img-col {
+      height: 100%;
+      min-height: 440px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cava-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .cava-showcase:hover .cava-img-col img {
+      transform: scale(1.04);
+    }
+
+    .cava-copy-col {
+      padding: 48px;
+    }
+
+    .cava-drinks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 26px 0 32px 0;
+    }
+
+    .drink-item-mini {
+      background: rgba(255, 255, 255, 0.045);
+      border-left: 3px solid var(--accent-gold);
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .drink-item-mini h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-cream);
+      margin-bottom: 4px;
+    }
+
+    .drink-item-mini p {
+      font-size: 0.84rem;
+      color: var(--text-cream-muted);
+    }
+
+    /* ==========================================================================
+       7. CARRUSEL DE ESPECIALIDADES DE TEMPORADA (FONDO02 100% REAL CON EFECTO PARALLAX)
+       ========================================================================== */
+    .section-seasonal {
+      padding: 100px 0;
+      background-color: var(--bg-charcoal);
+      background-image: url('assets/images/fondo02.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      background: rgba(4, 29, 18, 0.86);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      display: none;
+      grid-template-columns: 1.1fr 1fr;
+      min-height: 440px;
+      align-items: center;
+      animation: fadeSlide 0.5s ease;
+    }
+
+    .carousel-slide.active {
+      display: grid;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0.3; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .slide-media {
+      height: 100%;
+      min-height: 440px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-info {
+      padding: 48px;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 10px;
+    }
+
+    .c-dot {
+      width: 34px;
+      height: 6px;
+      border-radius: 4px;
+      background: rgba(244, 239, 230, 0.25);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .c-dot.active {
+      background: var(--accent-gold);
+      width: 54px;
+    }
+
+    .carousel-arrows {
+      display: flex;
+      gap: 12px;
+    }
+
+    .arrow-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: rgba(4, 29, 18, 0.65);
+      color: var(--text-cream);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .arrow-btn:hover {
+      background: var(--accent-gold);
+      color: var(--text-dark);
+      border-color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       8. SECCIÓN PRECIOS & PROMOS (FONDO03 100% REAL CON EFECTO PARALLAX)
+       ========================================================================== */
+    .section-cream {
+      padding: 110px 0;
+      background-color: var(--bg-cream);
+      background-image: url('assets/images/fondo03.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-dark);
+    }
+
+    .section-cream .eyebrow-tag {
+      color: var(--accent-ember);
+    }
+
+    .section-cream .section-title {
+      color: var(--text-dark);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-bottom: 52px;
+    }
+
+    .price-card-clean {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 34px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 30px rgba(9, 30, 19, 0.06);
+    }
+
+    .price-card-clean.featured {
+      background: var(--bg-forest);
+      color: var(--text-cream);
+      border-color: var(--bg-forest);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(7, 43, 27, 0.24);
+    }
+
+    .price-tag-big {
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      font-weight: 800;
+      line-height: 1;
+      margin: 16px 0;
+      color: var(--text-dark);
+    }
+
+    .price-card-clean.featured .price-tag-big {
+      color: var(--accent-gold);
+    }
+
+    .price-list-items {
+      list-style: none;
+      margin: 18px 0 26px 0;
+    }
+
+    .price-list-items li {
+      font-size: 0.93rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cumple-banner {
+      position: relative;
+      overflow: visible;
+      background: linear-gradient(120deg, #072B1B 0%, #0F462D 100%);
+      color: var(--text-cream);
+      border-radius: var(--radius-lg);
+      padding: 40px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      box-shadow: 0 20px 45px rgba(7, 43, 27, 0.18);
+    }
+
+    /* Imagen de Cupcake centrada entre el texto izquierdo y el botón derecho, más grande y saliendo solo la puntita de arriba */
+    .cumple-cupcake-img {
+      position: absolute;
+      left: 58.5%;
+      top: -36px;
+      width: 248px;
+      height: auto;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 3;
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+      transform: translateX(-50%) rotate(3deg);
+      transition: var(--transition-smooth);
+    }
+
+    .cumple-banner:hover .cumple-cupcake-img {
+      transform: translateX(-50%) translateY(-4px) rotate(5deg);
+    }
+
+    /* ==========================================================================
+       9. SECCIÓN: BANQUETES VIP A DOMICILIO (FONDO01 100% REAL CON EFECTO PARALLAX)
+       ========================================================================== */
+    .section-vip {
+      padding: 110px 0;
+      background-color: var(--bg-forest);
+      background-image: url('assets/images/fondo01.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .vip-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+
+    .vip-visual-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px;
+    }
+
+    .vip-visual-card img.bg-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .vip-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4, 29, 18, 0.95) 12%, rgba(4, 29, 18, 0.25) 100%);
+      z-index: 2;
+    }
+
+    .vip-visual-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .calculator-card {
+      background: rgba(4, 29, 18, 0.88);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(245, 184, 46, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 38px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+    }
+
+    .form-control, .form-select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-cream);
+      font-family: var(--font-sans);
+      font-size: 0.96rem;
+    }
+
+    /* Icono del calendario en color blanco para el seleccionador de fecha */
+    input[type="date"] {
+      color-scheme: dark;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: brightness(0) invert(1);
+      opacity: 0.95;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+
+    .form-select option {
+      background: var(--bg-forest-deep);
+      color: var(--text-cream);
+    }
+
+    .range-slider {
+      width: 100%;
+      accent-color: var(--accent-gold);
+      cursor: pointer;
+      height: 8px;
+    }
+
+    .quote-summary-box {
+      background: rgba(245, 184, 46, 0.09);
+      border: 1px dashed var(--accent-gold);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 22px 0;
+    }
+
+    /* ==========================================================================
+       10. SECCIÓN: RESERVA DE COMEDOR & UBICACIÓN (FONDO02 100% REAL CON EFECTO PARALLAX)
+       ========================================================================== */
+    .section-location {
+      padding: 100px 0;
+      background-color: var(--bg-forest-deep);
+      background-image: url('assets/images/fondo02.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .map-frame-box {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-forest-card);
+    }
+
+    /* ==========================================================================
+       11. FOOTER MINIMALISTA + FIRMA BLUEBERRY DIGITAL
+       ========================================================================== */
+    .site-footer {
+      background: #03140C;
+      border-top: 1px solid var(--border-subtle);
+      padding: 70px 0 30px 0;
+      color: var(--text-cream-muted);
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr 0.9fr 1.5fr;
+      gap: 36px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .footer-col h4 {
+      color: var(--text-cream);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-bottom-bar {
+      padding-top: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.88rem;
+    }
+
+    /* Desarrollado por... todo completo en gris y sin subrayar */
+    .developer-credit {
+      margin-left: auto;
+      text-align: right;
+      font-weight: 400;
+      color: #84928A;
+    }
+
+    .developer-credit a {
+      color: #84928A;
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: none;
+      padding-bottom: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .developer-credit a:hover {
+      color: #A3B1A9;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    /* Iconos de Redes Sociales en Blanco para el Footer */
+    .footer-social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .social-icon-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: var(--transition-smooth);
+    }
+
+    .social-icon-link svg {
+      width: 20px;
+      height: 20px;
+      fill: #FFFFFF;
+      transition: var(--transition-smooth);
+    }
+
+    .social-icon-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #FFFFFF;
+      transform: translateY(-3px);
+    }
+
+    /* Ventana Emergente (Modal) de Facturación Rápida en Línea (CFDI 4.0) */
+    .facturacion-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(2, 16, 10, 0.84);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.32s ease, visibility 0.32s ease;
+    }
+
+    .facturacion-modal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .facturacion-modal-window {
+      width: 100%;
+      max-width: 1040px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #041D12 0%, #0B3824 100%);
+      border: 1px solid rgba(245, 184, 46, 0.48);
+      border-radius: var(--radius-lg);
+      padding: 42px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
+      position: relative;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .facturacion-modal-backdrop.is-open .facturacion-modal-window {
+      transform: translateY(0) scale(1);
+    }
+
+    .facturacion-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.07);
+      color: #FFFFFF;
+      font-size: 1.15rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .facturacion-close-btn:hover {
+      background: var(--accent-ember);
+      border-color: var(--accent-ember);
+      transform: rotate(90deg);
+    }
+
+    .facturacion-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .facturacion-benefits {
+      display: grid;
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .facturacion-benefit-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .facturacion-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Controles móviles para el carrusel de Precios y Menú Hamburguesa (ocultos en escritorio) */
+    .pricing-mobile-controls {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 184, 46, 0.45);
+      background: rgba(4, 29, 18, 0.85);
+      color: var(--text-cream);
+      font-size: 1.25rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .location-2col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE: VERSIÓN TABLET Y MÓVIL (SOLO <= 1024PX)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      html, body {
+        overflow-x: hidden;
+      }
+
+      /* Fondos reales sin bloqueo de fixed en navegadores móviles (iOS/Android) */
+      .hero,
+      .section-rodizio,
+      .section-menu,
+      .section-seasonal,
+      .section-cream,
+      .section-vip,
+      .section-location {
+        background-attachment: scroll;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      /* Navbar Móvil / Tablet con Menú Desplegable */
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        background: rgba(4, 29, 18, 0.97);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(245, 184, 46, 0.38);
+        border-radius: 20px;
+        padding: 18px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65);
+        z-index: 1000;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 11px 8px;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(244, 239, 230, 0.08);
+      }
+
+      .nav-links li:last-child a {
+        border-bottom: none;
+      }
+
+      /* Hero en Móvil y Tablet */
+      .hero {
+        padding: 105px 0 48px 0;
+        min-height: auto;
+      }
+
+      .hero-stage {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-top: 16px;
+        min-height: auto;
+      }
+
+      .hero-visual-center,
+      .hero-copy-block {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        padding-left: 0;
+      }
+
+      .hero-fire-backdrop {
+        left: 50%;
+        width: clamp(360px, 94vw, 580px);
+        height: clamp(460px, 70vh, 660px);
+      }
+
+      .hero-floating-picana {
+        height: clamp(490px, 70vh, 680px);
+        width: auto;
+        max-width: 96vw;
+        transform: rotate(-2deg);
+        margin: -10px auto;
+      }
+
+      .hero-corner-top-right {
+        position: static;
+        max-width: 230px;
+        margin-top: 16px;
+      }
+
+      .hero-corner-bottom-left {
+        position: static;
+        max-width: 100%;
+        margin-top: 16px;
+      }
+
+      .hero-organic-motif {
+        display: none;
+      }
+
+      /* Semáforo y Pasos del Rodízio en Móvil */
+      .semaforo-interactive-box {
+        flex-wrap: wrap;
+        padding: 22px 20px;
+        gap: 18px;
+      }
+
+      .disco-widget {
+        flex-wrap: wrap;
+      }
+
+      .steps-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        margin-top: 34px;
+      }
+
+      .step-corner-img {
+        width: 115px;
+        height: 115px;
+        top: -26px;
+        right: -6px;
+      }
+
+      /* 1. FICHAS DE LA SECCIÓN DE ESPADAS EN 2 COLUMNAS EN MÓVIL Y TABLET */
+      .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        margin-bottom: 28px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      /* 2. FICHAS DE PRECIOS Y PROMOS DESPLEGADAS DE IZQUIERDA A DERECHA CON BOTONES INTERACTIVOS */
+      .pricing-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding: 10px 4px 18px 4px;
+        margin-bottom: 12px;
+        scrollbar-width: none;
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .price-card-clean,
+      .price-card-clean.featured {
+        flex: 0 0 85%;
+        max-width: 370px;
+        scroll-snap-align: center;
+        transform: none;
+      }
+
+      .pricing-mobile-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 38px;
+      }
+
+      .pricing-dots {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .pricing-dot {
+        width: 28px;
+        height: 6px;
+        border-radius: 4px;
+        background: rgba(9, 30, 19, 0.25);
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .pricing-dot.active {
+        width: 46px;
+        background: var(--bg-forest);
+      }
+
+      .pricing-arrow-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid var(--bg-forest);
+        background: var(--bg-forest);
+        color: var(--text-cream);
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(7, 43, 27, 0.22);
+        transition: var(--transition-smooth);
+      }
+
+      .pricing-arrow-btn:active,
+      .pricing-arrow-btn:hover {
+        background: var(--accent-gold);
+        color: var(--text-dark);
+        border-color: var(--accent-gold);
+      }
+
+      /* Cumpleaños, Cava, Carrusel, VIP, Ubicación y Modal en Móvil/Tablet */
+      .cumple-banner {
+        padding: 28px 22px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cumple-cupcake-img {
+        position: static;
+        width: 165px;
+        transform: none;
+        margin: -6px auto 0 auto;
+      }
+
+      .cumple-banner:hover .cumple-cupcake-img {
+        transform: none;
+      }
+
+      .cava-showcase,
+      .carousel-slide.active,
+      .vip-split-grid,
+      .location-grid,
+      .facturacion-grid,
+      .facturacion-form-grid,
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cava-img-col,
+      .slide-media {
+        min-height: 280px;
+      }
+
+      .cava-copy-col,
+      .slide-info,
+      .calculator-card {
+        padding: 26px 20px;
+      }
+
+      .vip-visual-card {
+        min-height: 380px;
+        padding: 24px 20px;
+      }
+
+      .facturacion-modal-backdrop {
+        padding: 12px;
+      }
+
+      .facturacion-modal-window {
+        padding: 26px 18px;
+        max-height: 94vh;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+        gap: 14px;
+        padding-top: 22px;
+      }
+
+      .footer-bottom-bar > div {
+        width: 100%;
+        text-align: left;
+        line-height: 1.5;
+      }
+
+      .developer-credit {
+        width: 100%;
+        margin-left: 0;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
+      }
+    }
+
+    /* Ajustes finos para teléfonos móviles (<= 640px) manteniendo las 2 columnas en Espadas */
+    @media (max-width: 640px) {
+      .brand-logo-img {
+        height: 38px;
+      }
+
+      .btn-gold-pill {
+        padding: 9px 18px;
+        font-size: 0.85rem;
+      }
+
+      .hero-fire-backdrop {
+        width: 100vw;
+        height: 540px;
+      }
+
+      .hero-floating-picana {
+        width: 96vw;
+        height: auto;
+        min-height: 490px;
+        max-height: 620px;
+        max-width: none;
+        margin: -14px auto;
+      }
+
+      .hero-headline {
+        font-size: clamp(2.25rem, 9.5vw, 3.1rem);
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta-group .btn-fertile-combo,
+      .hero-cta-group .btn-outline-cream {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-cta-group .btn-fertile-pill {
+        flex: 1;
+        text-align: center;
+      }
+
+      .semaforo-interactive-box .btn-outline-cream {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* 2 columnas en Espadas optimizadas para pantalla de teléfono */
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-img-wrap {
+        height: 145px;
+      }
+
+      .product-badge-top {
+        top: 8px;
+        left: 8px;
+        font-size: 0.62rem;
+        padding: 3px 8px;
+      }
+
+      .product-status-pill {
+        bottom: 8px;
+        right: 8px;
+        font-size: 0.6rem;
+        padding: 3px 7px;
+      }
+
+      .product-body {
+        padding: 13px 11px;
+      }
+
+      .product-body h3 {
+        font-size: 0.96rem;
+        line-height: 1.22;
+        margin-bottom: 6px;
+      }
+
+      .product-body p {
+        font-size: 0.77rem;
+        line-height: 1.38;
+      }
+
+      .cava-drinks-grid,
+      .location-2col-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .price-card-clean,
+      .price-card-clean.featured {
+        flex: 0 0 88%;
+        padding: 26px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Textura de grano editorial -->
+  <div class="noise-overlay"></div>
+
+  <!-- ==================== 1. NAVBAR SUPERIOR (TODO EN 1 LÍNEA) ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand-logo-wrap">
+        <img id="img-brand-logo" src="assets/images/logo_galpao.png" alt="Galpão do Brasil Durango" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links" id="navLinksMenu">
+        <li><a href="#rodizio" onclick="closeMobileMenu()">Rodízio</a></li>
+        <li><a href="#espadas" onclick="closeMobileMenu()">Nuestra Gastronomía</a></li>
+        <li><a href="#temporada" onclick="closeMobileMenu()">De Temporada</a></li>
+        <li><a href="#precios" onclick="closeMobileMenu()">Precios & Promos</a></li>
+        <li><a href="#banquetes" onclick="closeMobileMenu()">Banquetes VIP</a></li>
+        <li><a href="javascript:void(0)" onclick="closeMobileMenu(); openFacturacionModal()">Facturación</a></li>
+        <li><a href="#ubicacion" onclick="closeMobileMenu()">Ubicación</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#reservar" class="btn-gold-pill">Reservar</a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Abrir menú de navegación">☰</button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== 2. HERO EDITORIAL (FONDO01 + DESTELLOS + PICAÑA PNG FLOTANTE CON FUEGO DETRÁS) ==================== -->
+  <section class="hero" id="inicio">
+    <!-- Animación de chispas y destellos encima del fondo01.jpg -->
+    <canvas class="embers-canvas" id="embersCanvas"></canvas>
+
+    <div class="container" style="position: relative; z-index: 3;">
+      <!-- Cita Editorial Flotante Arriba a la Derecha -->
+      <div class="hero-corner-top-right">
+        <div class="quote-marks">“</div>
+        <p id="hero-quote-text">
+          El sonido de la brasa, el corte jugoso en tu mesa y el sabor que despierta todos tus sentidos.
+        </p>
+      </div>
+
+      <div class="hero-stage">
+        <!-- Picaña PNG Flotando Grandota sobre todo el fondo con Fuego y Brasas Detrás (Sin cuadro ni límites) -->
+        <div class="hero-visual-center">
+          <div class="hero-fire-backdrop" aria-hidden="true">
+            <div class="fire-core-glow"></div>
+            <div class="fire-flames-layer"></div>
+            <svg class="fire-svg-tongues" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="flameGrad1" x1="200" y1="480" x2="200" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FF3B00" stop-opacity="0.85"/>
+                  <stop offset="50%" stop-color="#FF9900" stop-opacity="0.65"/>
+                  <stop offset="100%" stop-color="#FFE66D" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="flameGrad2" x1="200" y1="460" x2="200" y2="90" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#E04F26" stop-opacity="0.9"/>
+                  <stop offset="60%" stop-color="#F5B82E" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#FFF5C0" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M200 470 C110 460 75 360 115 265 C140 205 110 140 165 75 C155 145 195 170 205 110 C220 50 265 95 250 165 C285 145 310 210 285 280 C320 355 280 460 200 470 Z" fill="url(#flameGrad1)"/>
+              <path d="M205 460 C145 450 120 370 155 295 C175 250 155 190 195 135 C190 190 225 205 230 155 C245 195 275 245 255 310 C280 365 255 450 205 460 Z" fill="url(#flameGrad2)"/>
+            </svg>
+            <div class="fire-embers-bed"></div>
+          </div>
+
+          <img id="img-hero-main" src="assets/images/picana_hero.png" alt="Picaña Brasileña Jugosa al Fuego en Espada" class="hero-floating-picana">
+        </div>
+
+        <!-- Titular Monumental Superpuesto en Crema Editorial -->
+        <div class="hero-copy-block">
+          <div class="sizzle-badge">
+            <span class="sizzle-dot"></span>
+            <span>Buffet • Plaza Jardines, Durango</span>
+          </div>
+          <h1 class="hero-headline">
+            Espadas<br>
+            <span class="highlight-italic">Brasileñas</span><br>
+            al Carbón.
+          </h1>
+          <p class="hero-subtext">
+            Desfile ilimitado de +15 espadas al carbón, barra fresca de 16 ensaladas, sushi, pizzas brasileñas dulces y saladas, coctelería y cava de vinos en Victoria de Durango.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#reservar" class="btn-fertile-combo">
+              <span class="btn-fertile-pill">Reservar en Comedor</span>
+              <span class="btn-fertile-circle">↗</span>
+            </a>
+            <a href="#banquetes" class="btn-outline-cream">Cotizar Banquete VIP</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Esquina Inferior Izquierda: Orientada 100% al Antojo y las Espadas -->
+      <div class="hero-corner-bottom-left">
+        <div class="stat-editorial-gold" id="hero-stat-title">+15 Espadas</div>
+        <p id="hero-stat-desc">
+          Cortes jugosos recién salidos del fuego, barra gourmet, sushi y pizzas sin límite en tu mesa.
+        </p>
+      </div>
+
+      <!-- Acento Gráfico Orgánico Amarillo en Esquina Inferior Derecha -->
+      <svg class="hero-organic-motif" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M105.5 18C118 48 158 32 172 56C186 80 142 98 154 126C166 154 195 162 182 184C169 206 131 174 105.5 184C80 194 56 208 38 190C20 172 58 144 44 118C30 92 -2 86 12 60C26 34 68 62 84 40C100 18 93 -12 105.5 18Z" fill="#F5B82E" fill-opacity="0.88"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ==================== 3. LA EXPERIENCIA RODÍZIO (EL SEMÁFORO EN TU MESA) ==================== -->
+  <section class="section-rodizio" id="rodizio">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="eyebrow-tag">● Ritual Gastronómico Brasileño</span>
+          <h2 class="section-title">¿Cómo se vive la experiencia<br>en nuestro comedor?</h2>
+        </div>
+        <p style="max-width: 420px; color: var(--text-cream-muted);">
+          Tú tienes el mando del ritmo en tu mesa. Nuestro sistema rotativo garantiza que cada corte llegue caliente, jugoso y en el término de tu preferencia.
+        </p>
+      </div>
+
+      <!-- Semáforo Interactivo -->
+      <div class="semaforo-interactive-box">
+        <div class="disco-widget">
+          <div class="disco-circle" id="tableDisco" onclick="toggleDisco()" title="Haz clic para girar el disco de tu mesa">
+            <span id="discoLabel">VERDE</span>
+          </div>
+          <div class="disco-text-content">
+            <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent-gold); font-weight: 700;">
+              Simulador de Mesa • Haz clic en el disco para girarlo
+            </div>
+            <h3 id="discoStatusTitle" style="font-size: 1.4rem; margin: 4px 0;">
+              ¡Disco en Verde! Que sigan desfilando las espadas
+            </h3>
+            <p id="discoStatusDesc" style="color: var(--text-cream-muted); font-size: 0.94rem;">
+              Nuestros maestros espaderos se acercarán continuamente a tu mesa con Picaña, Sirloin, Costilla, Filete Mignon y más.
+            </p>
+          </div>
+        </div>
+        <button class="btn-outline-cream" style="flex-shrink: 0; white-space: nowrap;" onclick="toggleDisco()">Girar Disco de Mesa ↻</button>
+      </div>
+
+      <div class="steps-grid-3">
+        <div class="step-minimal-card">
+          <img src="assets/images/pasta.png" alt="Pastas y Barra Gourmet" class="step-corner-img">
+          <div class="step-num-serif">01.</div>
+          <h3>Barra Gourmet & Sushi</h3>
+          <p>
+            Inicia tu recorrido en nuestra barra con más de 16 ensaladas frescas, pastas, rollos de sushi, carnes frías, quesos, feijoada brasileña y guarniciones calientes.
+          </p>
+        </div>
+        <div class="step-minimal-card">
+          <img src="assets/images/picanha.png" alt="Espada de Picaña Brasileña al Carbón" class="step-corner-img">
+          <div class="step-num-serif">02.</div>
+          <h3>+15 Espadas al Carbón</h3>
+          <p>
+            Pon tu disco en verde y disfruta del desfile ilimitado de cortes de res, cerdo y pollo asados lentamente al carbón y rebanados al instante.
+          </p>
+        </div>
+        <div class="step-minimal-card">
+          <img src="assets/images/pizza.png" alt="Pizzas Brasileñas y Piña Asada con Canela" class="step-corner-img">
+          <div class="step-num-serif">03.</div>
+          <h3>Pizzas Dulces & Piña</h3>
+          <p>
+            Acompaña o cierra con broche de oro con nuestras famosas pizzas brasileñas saladas y dulces recién horneadas y la icónica piña asada con canela.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 4. VITRINA DE ESPADAS & BAR DE BEBIDAS ==================== -->
+  <section class="section-menu" id="espadas">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="eyebrow-tag">● Selección del Maestro Espadero</span>
+          <h2 class="section-title">Nuestras Espadas al Carbón<br>& Especialidades</h2>
+        </div>
+        <p style="max-width: 440px; color: var(--text-cream-muted);">
+          Cortes jugosos asados lentamente a las brasas de carbón y servidos directamente en tu mesa por nuestros maestros espaderos.
+        </p>
+      </div>
+
+      <!-- Pestañas de Filtro en el orden solicitado -->
+      <div class="filter-tabs" id="menuFilterTabs">
+        <button class="filter-btn active" onclick="filterMenu('todos', this)">Todos los Favoritos</button>
+        <button class="filter-btn" onclick="filterMenu('espadas-cortes', this)">Espadas de Cortes</button>
+        <button class="filter-btn" onclick="filterMenu('barra-ensaladas', this)">Barra de Ensaladas</button>
+        <button class="filter-btn" onclick="filterMenu('barra-guarniciones', this)">Barra de Guarniciones</button>
+        <button class="filter-btn" onclick="filterMenu('pizzas-sushi', this)">Pizzas y Sushi</button>
+        <button class="filter-btn" onclick="filterMenu('barra-bebidas', this)">Barra de Bebidas</button>
+      </div>
+
+      <!-- Grid de las 3 Fichas de Espadas (Alimentado por GALPAO_CONFIG) -->
+      <div class="products-grid" id="productsGrid"></div>
+
+      <!-- BLOQUE ESPECIAL: BARRA DE BEBIDAS, MIXOLOGÍA, CERVEZAS & CAVA DE VINOS -->
+      <div class="cava-showcase" id="cava">
+        <div class="cava-img-col">
+          <img id="img-cava-showcase" src="assets/images/cava_cocteles.jpg" alt="Cava de Vinos, Caipirinhas, Coctelería y Cervezas en Galpão do Brasil">
+        </div>
+        <div class="cava-copy-col">
+          <span class="eyebrow-tag">● Maridaje, Tragos & Mixología</span>
+          <h3 class="section-title" style="font-size: 2.3rem; margin-bottom: 14px;">
+            Cava de Vinos, Cocktails & Barra de Bebidas
+          </h3>
+          <p style="color: var(--text-cream-muted); font-size: 0.98rem;">
+            Un gran corte merece el brindis perfecto. En nuestro comedor contamos con barra completa de bebidas alcohólicas, coctelería de autor preparada al momento y etiquetas seleccionadas para exaltar el sabor de la brasa.
+          </p>
+
+          <div class="cava-drinks-grid">
+            <div class="drink-item-mini">
+              <h4>🍷 Cava de Vinos Tintos</h4>
+              <p>Malbec, Cabernet Sauvignon, Merlot, Tempranillo y reservas ideales para maridar con Picaña y Sirloin.</p>
+            </div>
+            <div class="drink-item-mini">
+              <h4>🍹 Caipirinhas & Cocktails</h4>
+              <p>Caipirinhas tradicionales (limón, frutos rojos, maracuyá), Carajillos, Mojitos, Margaritas y Clericot.</p>
+            </div>
+            <div class="drink-item-mini">
+              <h4>🍺 Cervezas & Preparadas</h4>
+              <p>Cervezas nacionales y artesanales ultra frías, micheladas de la casa, clamatos y cheladas.</p>
+            </div>
+            <div class="drink-item-mini">
+              <h4>🥃 Destilados & Tragos</h4>
+              <p>Tequilas, mezcales, whisky, ron, vodka, digestivos y bebidas refrescantes sin alcohol para toda la familia.</p>
+            </div>
+          </div>
+
+          <a href="#reservar" class="btn-gold-pill">Apartar Mesa para Brindar ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 5. CARRUSEL DE ESPECIALIDADES DE TEMPORADA & NUEVAS ESPADAS ==================== -->
+  <section class="section-seasonal" id="temporada">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="eyebrow-tag">● Novedades de la Parrilla & El Horno</span>
+          <h2 class="section-title">Especiales de Temporada<br>& Nuevas Guarniciones</h2>
+        </div>
+        <p style="max-width: 420px; color: var(--text-cream-muted);">
+          Cada temporada renovamos nuestra selección con especialidades al carbón, barra fresca de fin de semana y creaciones dulces.
+        </p>
+      </div>
+
+      <div class="carousel-wrapper" id="seasonalCarousel"></div>
+
+      <div class="carousel-controls">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-arrows">
+          <button class="arrow-btn" onclick="moveSlide(-1)" aria-label="Anterior">←</button>
+          <button class="arrow-btn" onclick="moveSlide(1)" aria-label="Siguiente">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 6. PRECIOS TRANSPARENTES, PROMOCIONES & CUMPLEAÑOS ==================== -->
+  <section class="section-cream" id="precios">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="eyebrow-tag">● Abundancia sin Sorpresas</span>
+          <h2 class="section-title">Precios de Comedor<br>& Promociones Vigentes</h2>
+        </div>
+        <p style="max-width: 440px; color: var(--text-dark-muted);">
+          Tu experiencia incluye acceso libre a las +15 espadas de carne, barra de 16 ensaladas, sushi, guarniciones calientes, pizzas y piña con canela. <strong>*Ningún precio de buffet incluye bebidas ni postres.</strong>
+        </p>
+      </div>
+
+      <div class="pricing-grid" id="pricingGrid">
+        <!-- Tarjeta 1: Tardes Galpão / Entre Semana -->
+        <div class="price-card-clean">
+          <div>
+            <span class="eyebrow-tag" style="color: #15803D;">● Promoción Horario Especial</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.55rem;">Tardes Galpão</h3>
+            <div class="price-tag-big">$199 <span style="font-size: 1rem; font-weight: 600;">MXN</span></div>
+            <p style="font-size: 0.9rem; color: var(--text-dark-muted);">
+              Tarifa especial por adulto en días y horarios seleccionados entre semana.
+            </p>
+            <ul class="price-list-items">
+              <li>✔ Lunes, Martes y Jueves (4:00 PM a 6:00 PM)</li>
+              <li>✔ Incluye desfile de espadas y barra completa</li>
+              <li>✔ Pizzas saladas, dulces y piña con canela</li>
+              <li>✔ Niños (4 a 8 años): Tarifa preferencial $140 MXN</li>
+              <li style="color: var(--accent-ember); font-weight: 600;">✱ No incluye bebidas ni postres</li>
+            </ul>
+          </div>
+          <a href="#reservar" class="btn-gold-pill" style="justify-content: center; background: var(--bg-forest); color: var(--text-cream);">Reservar en este Horario</a>
+        </div>
+
+        <!-- Tarjeta 2: Buffet Regular Completo (Destacada) -->
+        <div class="price-card-clean featured">
+          <div>
+            <span class="eyebrow-tag">★ Experiencia Completa Ilimitada</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.65rem;">Buffet Rodízio General</h3>
+            <div class="price-tag-big">$290 <span style="font-size: 1rem; font-weight: 600; color: var(--text-cream);">MXN</span></div>
+            <p style="font-size: 0.9rem; color: var(--text-cream-muted);">
+              Nuestro buffet insignia en comedor (Sábado y Domingo con Especial de Mariscos y Camarones a solo $295 MXN).
+            </p>
+            <ul class="price-list-items">
+              <li>✔ +15 Cortes en espada (Picaña, Sirloin, Mignon, Pollo...)</li>
+              <li>✔ Barra de 16+ ensaladas, sushi y feijoada</li>
+              <li>✔ Pizzas brasileñas artesanales sin límite</li>
+              <li>✔ Niños de 4 a 8 años: $140 MXN (Menores de 4 gratis)</li>
+              <li style="color: var(--accent-gold); font-weight: 600;">✱ No incluye bebidas ni postres</li>
+            </ul>
+          </div>
+          <a href="#reservar" class="btn-gold-pill" style="justify-content: center;">Apartar Mesa Ahora ↗</a>
+        </div>
+
+        <!-- Tarjeta 3: Viernes de Damas & Fines de Semana -->
+        <div class="price-card-clean">
+          <div>
+            <span class="eyebrow-tag" style="color: var(--accent-ember);">● Dinámica Especial</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.55rem;">Viernes Social & Grupos</h3>
+            <div class="price-tag-big">$260 <span style="font-size: 1rem; font-weight: 600;">MXN</span></div>
+            <p style="font-size: 0.9rem; color: var(--text-dark-muted);">
+              Promoción de Viernes (Caballeros $260 MXN / Tarifas especiales para grupos).
+            </p>
+            <ul class="price-list-items">
+              <li>✔ Ambiente ideal para amigos y parejas</li>
+              <li>✔ Coctelería, cervezas y cava de vinos disponible en carta</li>
+              <li>✔ Estacionamiento amplio y seguro en Plaza Jardines</li>
+              <li>✔ <a href="javascript:void(0)" onclick="openFacturacionModal()" style="text-decoration: underline; font-weight: 700;">Facturación en línea</a> para empresas y foráneos</li>
+              <li style="color: var(--accent-ember); font-weight: 600;">✱ No incluye bebidas ni postres</li>
+            </ul>
+          </div>
+          <a href="#reservar" class="btn-gold-pill" style="justify-content: center; background: var(--bg-forest); color: var(--text-cream);">Consultar Promoción del Día</a>
+        </div>
+      </div>
+
+      <!-- Botones interactivos de desplazamiento horizontal para versión Móvil / Tablet -->
+      <div class="pricing-mobile-controls" aria-label="Controles de desplazamiento de precios">
+        <div class="pricing-dots" id="pricingMobileDots">
+          <div class="pricing-dot active" onclick="scrollToPricingCard(0)"></div>
+          <div class="pricing-dot" onclick="scrollToPricingCard(1)"></div>
+          <div class="pricing-dot" onclick="scrollToPricingCard(2)"></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button type="button" class="pricing-arrow-btn" onclick="scrollPricingMobile(-1)" aria-label="Precio anterior">←</button>
+          <button type="button" class="pricing-arrow-btn" onclick="scrollPricingMobile(1)" aria-label="Siguiente precio">→</button>
+        </div>
+      </div>
+
+      <!-- Banner Club de Cumpleañeros con cupcake.png centrado entre el texto izq y el botón der, saliendo solo la puntita de arriba -->
+      <div class="cumple-banner">
+        <div style="max-width: 530px; position: relative; z-index: 2;">
+          <span class="eyebrow-tag">🎂 Club de Cumpleañeros Galpão</span>
+          <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 8px;">
+            ¿Cumples años este mes? ¡Tu Buffet corre por nuestra cuenta!
+          </h3>
+          <p style="color: var(--text-cream-muted); font-size: 0.96rem;">
+            Ven a celebrar a nuestro comedor acompañado de al menos 4 adultos con buffet pagado y el buffet del festejado es GRATIS (no incluye bebidas ni postres). Registra tu mesa por WhatsApp y prepárate para brindar.
+          </p>
+        </div>
+
+        <img src="assets/images/cupcake.png" alt="Cupcake de Cumpleaños Galpão do Brasil" class="cumple-cupcake-img">
+
+        <a href="https://wa.me/526183360925?text=Hola%20Galp%C3%A3o%20do%20Brasil%2C%20cumplo%20a%C3%B1os%20este%20mes%20y%20quiero%20reservar%20mi%20mesa%20para%20la%20promoci%C3%B3n%20de%20cumplea%C3%B1ero." target="_blank" class="btn-fertile-combo" style="position: relative; z-index: 4;">
+          <span class="btn-fertile-pill">Reclamar Cumpleaños Gratis</span>
+          <span class="btn-fertile-circle">🎂</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 7. BANQUETES VIP A DOMICILIO & COTIZADOR INTERACTIVO ==================== -->
+  <section class="section-vip" id="banquetes">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="eyebrow-tag">● Eventos Privados de Alto Nivel en Durango</span>
+          <h2 class="section-title">Banquetes VIP de Espadas<br>a Domicilio</h2>
+        </div>
+        <p style="max-width: 450px; color: var(--text-cream-muted);">
+          Llevamos toda la infraestructura de nuestra churrasquería a tu boda, quinta, graduación, aniversario o evento empresarial.
+        </p>
+      </div>
+
+      <div class="vip-split-grid">
+        <!-- Tarjeta Visual Izquierda -->
+        <div class="vip-visual-card">
+          <img id="img-vip-banquete" src="assets/images/banquetes_vip_jardin.jpg" alt="Banquetes VIP de Espadas Brasileñas a Domicilio en Durango" class="bg-photo">
+          <div class="vip-visual-overlay"></div>
+          <div class="vip-visual-content">
+            <span class="eyebrow-tag">★ El Show del Fuego en tu Evento</span>
+            <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 12px;">
+              Parrilla Móvil al Carbón & Maestros Espaderos
+            </h3>
+            <p style="color: var(--text-cream-muted); margin-bottom: 20px; font-size: 0.95rem;">
+              Sorprende a tus invitados con nuestros espaderos uniformados sirviendo Picaña, Sirloin, Costilla, Chorizo Brasileño y Piña con Canela recién salidos de las brasas, acompañados de barra de ensaladas y guarniciones.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <span class="sizzle-badge" style="margin-bottom: 0;">🔥 Asador al Carbón Incluido</span>
+              <span class="sizzle-badge" style="margin-bottom: 0;">🥩 Paquetes desde 30 a 300+ Personas</span>
+              <span class="sizzle-badge" style="margin-bottom: 0;">🏢 Convenios Empresas & Posadas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculadora / Cotizador Interactivo Derecha -->
+        <div class="calculator-card">
+          <h3 style="font-family: var(--font-display); font-size: 1.65rem; margin-bottom: 6px;">
+            Cotizador Interactivo de Eventos VIP
+          </h3>
+          <p style="color: var(--text-cream-muted); font-size: 0.9rem; margin-bottom: 22px;">
+            Configura tu banquete en segundos y recibe atención prioritaria en WhatsApp:
+          </p>
+
+          <div class="form-group">
+            <label class="form-label">1. Tipo de Evento Privado</label>
+            <select id="vipEventType" class="form-select" onchange="updateVipQuote()">
+              <option value="Evento Social / Quinta Privada">Evento Social / Quinta Privada</option>
+              <option value="Boda / Recepción Nupcial">Boda / Recepción Nupcial</option>
+              <option value="Evento Corporativo / Posada Empresarial">Evento Corporativo / Posada Empresarial</option>
+              <option value="XV Años / Graduación / Aniversario">XV Años / Graduación / Aniversario</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              2. Número de Comensales: <span id="guestCountDisplay" style="color: #FFFFFF; font-size: 1.1rem;">60 Invitados</span>
+            </label>
+            <input type="range" id="vipGuests" class="range-slider" min="30" max="300" step="10" value="60" oninput="updateVipQuote()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-cream-muted); margin-top: 4px;">
+              <span>30 personas</span>
+              <span>150 personas</span>
+              <span>300+ personas</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">3. Nivel de Paquete Gastronómico</label>
+            <select id="vipPackage" class="form-select" onchange="updateVipQuote()">
+              <option value="Paquete Rodízio Tradicional (Espadas Selectas + Ensaladas + Guarniciones)">Paquete Rodízio Tradicional (Espadas Selectas + Ensaladas + Guarniciones)</option>
+              <option value="Paquete Gold Picaña & Sirloin Premium (+ Piña Asada & Barra Gourmet)" selected>Paquete Gold Picaña & Sirloin Premium (+ Piña Asada & Barra Gourmet)</option>
+              <option value="Paquete Imperial VIP Full (Todos los Cortes + Barra + Pizzas + Cava)">Paquete Imperial VIP Full (Todos los Cortes + Barra + Pizzas + Cava)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">4. Fecha Tentativa del Evento</label>
+            <input type="date" id="vipDate" class="form-control" onchange="updateVipQuote()">
+          </div>
+
+          <div class="quote-summary-box">
+            <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); font-weight: 700;">
+              Resumen de Solicitud VIP
+            </div>
+            <div id="vipSummaryText" style="font-size: 0.95rem; color: var(--text-cream); margin-top: 4px; font-weight: 500;">
+              Banquete para 60 invitados • Paquete Gold Picaña & Sirloin Premium • Incluye maestros espaderos y parrilla al carbón a domicilio.
+            </div>
+          </div>
+
+          <button onclick="sendVipQuoteWhatsApp()" class="btn-gold-pill" style="width: 100%; justify-content: center; font-size: 1rem; padding: 15px;">
+            Solicitar Cotización de Banquete por WhatsApp ↗
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 8. RESERVACIÓN RÁPIDA DE COMEDOR & UBICACIÓN ==================== -->
+  <section class="section-location" id="ubicacion">
+    <div class="container">
+      <div class="location-grid" id="reservar">
+        <!-- Formulario Express de Reservación de Comedor -->
+        <div class="calculator-card" style="background: rgba(11, 56, 36, 0.88);">
+          <span class="eyebrow-tag">● Atención Inmediata vía WhatsApp</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.1rem; margin-bottom: 8px;">
+            Reserva tu Mesa en Comedor
+          </h2>
+          <p style="color: var(--text-cream-muted); font-size: 0.92rem; margin-bottom: 24px;">
+            Aparta tu lugar en menos de 30 segundos. Tu solicitud llega lista a nuestro WhatsApp oficial (<strong>618 336 0925</strong>).
+          </p>
+
+          <div class="form-group">
+            <label class="form-label">Nombre a quien se reserva</label>
+            <input type="text" id="resName" class="form-control" placeholder="Ej. Familia Garza / Ing. Roberto">
+          </div>
+
+          <div class="location-2col-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Número de Personas</label>
+              <select id="resPeople" class="form-select">
+                <option value="2 personas">2 personas (Pareja)</option>
+                <option value="4 personas" selected>4 personas</option>
+                <option value="6 personas">6 personas</option>
+                <option value="8 a 10 personas">8 a 10 personas</option>
+                <option value="Grupo de 12+ personas">Grupo de 12+ personas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fecha y Hora</label>
+              <input type="text" id="resTime" class="form-control" placeholder="Ej. Hoy 2:30 PM / Viernes 8 PM">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Motivo o Preferencia en Comedor</label>
+            <select id="resOccasion" class="form-select">
+              <option value="Comida Familiar / Amigos">Comida Familiar / Amigos</option>
+              <option value="Celebración de Cumpleaños (Promoción Cumpleañero)">🎂 Celebración de Cumpleaños (Promoción Cumpleañero)</option>
+              <option value="Comida de Negocios (Requiero Factura)">💼 Comida de Negocios / Corporativa</option>
+              <option value="Aniversario / Cena Especial con Cava de Vinos">🍷 Aniversario / Cena Especial</option>
+            </select>
+          </div>
+
+          <button type="button" onclick="sendComedorReservation()" class="btn-fertile-combo" style="width: 100%; margin-top: 8px;">
+            <span class="btn-fertile-pill" style="flex: 1; text-align: center;">Confirmar Mesa por WhatsApp</span>
+            <span class="btn-fertile-circle">↗</span>
+          </button>
+        </div>
+
+        <!-- Información de Ubicación en Plaza Jardines y Mapa -->
+        <div>
+          <span class="eyebrow-tag">● Corredor Comercial Francisco Villa</span>
+          <h2 class="section-title" style="font-size: 2.3rem; margin-bottom: 16px;">
+            Visítanos en Plaza Jardines, Durango
+          </h2>
+          <p style="color: var(--text-cream-muted); margin-bottom: 24px;">
+            Ubicados estratégicamente frente al Mercado de Abastos con amplio estacionamiento gratuito y acceso inmediato.
+          </p>
+
+          <div class="location-2col-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+            <div class="step-minimal-card" style="padding: 18px;">
+              <h4 style="color: var(--accent-gold); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 6px;">📍 Dirección Oficial</h4>
+              <p style="font-size: 0.9rem; color: var(--text-cream);">
+                Blvd. Francisco Villa #200, Locales 1 y 2, Plaza Jardines (Fracc. La Glorieta), Durango, Dgo.
+              </p>
+            </div>
+            <div class="step-minimal-card" style="padding: 18px;">
+              <h4 style="color: var(--accent-gold); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 6px;">🕒 Horarios de Comedor</h4>
+              <p style="font-size: 0.9rem; color: var(--text-cream);">
+                Lunes a Sábado: 12:00 PM – 10:00 PM<br>
+                Domingo: 12:00 PM – 8:00 PM<br>
+                Tel: <strong>618 336 0925</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="map-frame-box">
+            <iframe
+              title="Ubicación Galpão do Brasil Durango en Plaza Jardines"
+              src="https://www.google.com/maps?q=Galpao+Do+Brasil+Plaza+Jardines+Durango&output=embed"
+              width="100%"
+              height="270"
+              style="border:0; filter: grayscale(0.15) contrast(1.05);"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+          <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <span style="font-size: 0.85rem; color: var(--text-cream-muted);">🅿️ Estacionamiento Gratuito • 💳 Efectivo, Visa y Mastercard</span>
+            <a href="https://maps.app.goo.gl/EZZXRjQNnv38R8Jg7" target="_blank" style="color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;">
+              Abrir Ruta en Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 9. FOOTER MINIMALISTA + ICONOS DE REDES EN BLANCO + CONDICIONES ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <img src="assets/images/logo_galpao.png" alt="Galpão do Brasil" style="height: 54px; border-radius: 8px; margin-bottom: 14px;">
+          <p style="font-size: 0.9rem; max-width: 320px;">
+            Churrasquería Brasileña & Buffet de Espadas al Carbón en Victoria de Durango. Sabor, abundancia y tradición en cada corte.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#rodizio">Rodízio</a></li>
+            <li><a href="#espadas">Espadas</a></li>
+            <li><a href="#cava">Bar & Bebidas</a></li>
+            <li><a href="#precios">Precios & Cumpleaños</a></li>
+            <li><a href="#banquetes">Banquetes VIP a Domicilio</a></li>
+            <li><a href="javascript:void(0)" onclick="openFacturacionModal()">Facturación en Línea CFDI 4.0</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Redes Oficiales</h4>
+          <div class="footer-social-icons">
+            <!-- Facebook (Icono en blanco) -->
+            <a href="https://www.facebook.com/GalpaoDoBrasilDGO" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook Oficial" title="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <!-- Instagram (Icono en blanco) -->
+            <a href="https://www.instagram.com/GalpaoDoBrasilDGO" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram Oficial" title="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <!-- WhatsApp (Icono en blanco) -->
+            <a href="https://wa.me/526183360925" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp Oficial" title="WhatsApp">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.031 5.156-1.344c1.469.797 3.141 1.219 4.875 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.438-.531.078-1.219.109-1.969-.125-.453-.141-1.047-.344-1.797-.672-3.156-1.359-5.219-4.547-5.375-4.766-.156-.203-1.281-1.703-1.281-3.25s.813-2.313 1.094-2.625c.297-.313.641-.391.859-.391.219 0 .422.016.609.016.203.016.469-.078.734.563.266.656.906 2.219.984 2.375.078.156.125.344.031.547-.109.219-.156.344-.313.531-.156.188-.328.406-.469.547-.156.156-.328.328-.141.641.188.328.828 1.375 1.781 2.219 1.219 1.094 2.25 1.438 2.578 1.594.313.156.5.125.688-.078.188-.219.797-.938 1.016-1.25.219-.313.422-.266.719-.156.297.109 1.875.891 2.203 1.047.313.156.531.234.609.375.078.141.078.797-.172 1.5z"/>
+              </svg>
+            </a>
+            <!-- Google Maps / Ubicación (Icono en blanco) -->
+            <a href="https://maps.app.goo.gl/EZZXRjQNnv38R8Jg7" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Ubicación Google Maps" title="Google Maps">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Términos, Condiciones y Aviso Oficial</h4>
+          <p style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 8px;">
+            • <strong>No incluye bebidas ni postres:</strong> Ningún precio o promoción de buffet incluye bebidas ni postres.<br>
+            • <strong>Impuestos e IVA:</strong> Todos nuestros precios están expresados en MXN y <strong>ya incluyen IVA</strong>.<br>
+            • <strong>Restricciones:</strong> Aplican restricciones. Promociones válidas únicamente en comedor en días y horarios participantes; sujetas a disponibilidad y no acumulables con otros descuentos o cortesías.<br>
+            • <strong>Aviso de Seguridad:</strong> Galpão do Brasil Durango no solicita pagos anticipados mediante enlaces externos desconocidos.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 Galpão do Brasil Durango M.R. Todos los derechos reservados. Precios incluyen IVA • No incluye bebidas ni postres • Aplican restricciones.
+        </div>
+
+        <!-- Crédito completo en gris y sin subrayar -->
+        <div class="developer-credit">
+          Desarrollado por <a href="https://wa.me/+526182103942" target="_blank" rel="noopener noreferrer">BlueBerry Digital</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== VENTANA EMERGENTE (MODAL) DE FACTURACIÓN EN LÍNEA CFDI 4.0 ==================== -->
+  <div class="facturacion-modal-backdrop" id="facturacionModal" role="dialog" aria-modal="true" aria-labelledby="facturacionModalTitle" onclick="if(event.target === this) closeFacturacionModal()">
+    <div class="facturacion-modal-window">
+      <button type="button" class="facturacion-close-btn" onclick="closeFacturacionModal()" aria-label="Cerrar ventana de facturación">✕</button>
+
+      <div class="facturacion-grid">
+        <div>
+          <span class="eyebrow-tag">🧾 Servicio Fiscal Express CFDI 4.0</span>
+          <h3 id="facturacionModalTitle" style="font-family: var(--font-display); font-size: 2.15rem; line-height: 1.1; margin-bottom: 12px;">
+            Facturación Rápida en Línea
+          </h3>
+          <p style="color: var(--text-cream-muted); font-size: 0.96rem;">
+            Diseñado para facilitar la comprobación de gastos y viáticos de <strong>empresas locales y visitantes foráneos</strong> sin filas ni esperas en comedor.
+          </p>
+
+          <div class="facturacion-benefits">
+            <div class="facturacion-benefit-item">
+              <span style="font-size: 1.35rem;">🏢</span>
+              <div>
+                <strong style="color: var(--text-cream); display: block; font-size: 0.94rem;">Empresas Locales y Viáticos Foráneos</strong>
+                <span style="color: var(--text-cream-muted); font-size: 0.85rem;">Ideal para comidas de negocios, ejecutivos en viaje de trabajo y banquetes corporativos.</span>
+              </div>
+            </div>
+            <div class="facturacion-benefit-item">
+              <span style="font-size: 1.35rem;">⚡</span>
+              <div>
+                <strong style="color: var(--text-cream); display: block; font-size: 0.94rem;">Envío Directo de PDF y XML</strong>
+                <span style="color: var(--text-cream-muted); font-size: 0.85rem;">Captura tus datos fiscales aquí o adjunta tu Constancia de Situación Fiscal en un clic por WhatsApp y recibe tus archivos en tu correo.</span>
+              </div>
+            </div>
+            <div class="facturacion-benefit-item">
+              <span style="font-size: 1.35rem;">📌</span>
+              <div>
+                <strong style="color: var(--text-cream); display: block; font-size: 0.94rem;">Importante para Timbrado CFDI 4.0</strong>
+                <span style="color: var(--text-cream-muted); font-size: 0.85rem;">Solicita tu factura dentro del mismo mes de tu consumo. Todos nuestros precios ya incluyen IVA.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); font-weight: 700; margin-bottom: 14px;">
+            Captura los Datos Fiscales y de tu Ticket de Consumo
+          </div>
+
+          <div class="facturacion-form-grid">
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">RFC (Con Homoclave)</label>
+              <input type="text" id="facRfc" class="form-control" placeholder="Ej. XAXX010101000" style="text-transform: uppercase;">
+            </div>
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">Código Postal Fiscal (C.P.)</label>
+              <input type="text" id="facCp" class="form-control" placeholder="Ej. 34000" maxlength="5">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 14px;">
+            <label class="form-label">Razón Social o Nombre Completo (Sin Régimen Societario)</label>
+            <input type="text" id="facRazon" class="form-control" placeholder="Tal como aparece en tu Constancia de Situación Fiscal">
+          </div>
+
+          <div class="facturacion-form-grid">
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">Régimen Fiscal SAT</label>
+              <select id="facRegimen" class="form-select">
+                <option value="601 - General de Ley Personas Morales">601 - General de Ley Personas Morales</option>
+                <option value="612 - Personas Físicas con Actividades Empresariales y Profesionales">612 - P.F. Actividades Empresariales y Prof.</option>
+                <option value="626 - Régimen Simplificado de Confianza (RESICO)">626 - Régimen Simplificado de Confianza (RESICO)</option>
+                <option value="605 - Sueldos y Salarios e Ingresos Asimilados">605 - Sueldos y Salarios</option>
+                <option value="Otro Régimen (Adjuntaré Constancia)">Otro Régimen (Adjuntaré Constancia)</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">Uso de CFDI</label>
+              <select id="facUso" class="form-select">
+                <option value="G03 - Gastos en general (Consumo / Viáticos)">G03 - Gastos en general (Consumo / Viáticos)</option>
+                <option value="S01 - Sin efectos fiscales">S01 - Sin efectos fiscales</option>
+                <option value="G01 - Adquisición de mercancías">G01 - Adquisición de mercancías</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="facturacion-form-grid">
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">No. de Ticket / Mesa y Fecha</label>
+              <input type="text" id="facTicket" class="form-control" placeholder="Ej. Ticket #1045 - Hoy">
+            </div>
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label">Monto Total y Forma de Pago</label>
+              <input type="text" id="facMonto" class="form-control" placeholder="Ej. $1,450 MXN - Tarjeta Crédito">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 18px;">
+            <label class="form-label">Correo Electrónico (Para envío de PDF y XML)</label>
+            <input type="email" id="facEmail" class="form-control" placeholder="facturacion@tuempresa.com">
+          </div>
+
+          <button type="button" onclick="sendFacturacionWhatsApp()" class="btn-gold-pill" style="width: 100%; justify-content: center; font-size: 1rem; padding: 15px;">
+            Solicitar Factura CFDI 4.0 en Línea ↗
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== 10. ARQUITECTURA CENTRAL DE DATOS E IMÁGENES EN ASSETS/IMAGES/ ==================== -->
+  <script>
+    /**
+     * ============================================================================
+     * DICCIONARIO MAESTRO DE IMÁGENES, CORTES, BEBIDAS Y ESPECIALIDADES
+     * Todas las imágenes residen directamente en la carpeta: assets/images/
+     * ============================================================================
+     */
+    const GALPAO_CONFIG = {
+      whatsappComedor: "526183360925",
+      images: {
+        logo: "assets/images/logo_galpao.png",
+        heroMain: "assets/images/picana_hero.png",
+        cavaShowcase: "assets/images/cava_cocteles.jpg",
+        banquetesVip: "assets/images/banquetes_vip_jardin.jpg",
+        fondo01: "assets/images/fondo01.jpg",
+        fondo02: "assets/images/fondo02.jpg",
+        fondo03: "assets/images/fondo03.jpg"
+      },
+      products: [
+        {
+          id: "picana-brasilena",
+          category: "espadas-cortes",
+          inFavoritos: true,
+          tag: "Corte Estrella #1",
+          status: "Disponible en Espada",
+          name: "Picaña Brasileña al Carbón",
+          description: "Nuestro corte insignia con su tradicional capa de grasa dorada con sal de grano, asada a las brasas para máxima jugosidad y rebanada al momento en tu plato.",
+          image: "assets/images/hero_picana_fuego.jpg"
+        },
+        {
+          id: "espada-camarones-chef",
+          category: "espadas-cortes",
+          inFavoritos: true,
+          tag: "Favorito del Chef",
+          status: "Sábados y Domingos • $295",
+          name: "Ceviche de Mariscos & Espada de Camarones y Pescado al Carbón",
+          description: "Disfruta nuestra especialidad del mar: fresco ceviche de mariscos en barra y desfile de espada de camarones y pescado asados al carbón. Disponible exclusivamente Sábados y Domingos a solo $295.",
+          image: "assets/images/especialidades_temporada.jpg"
+        },
+        {
+          id: "top-sirloin-arrachera",
+          category: "espadas-cortes",
+          inFavoritos: true,
+          tag: "Res, Cerdo & Pollo",
+          status: "Disponible en Espada",
+          name: "Top Sirloin, Arrachera & Pollo",
+          description: "Cortes magros y suaves con el punto exacto de fuego, acompañados de jugoso pollo marinado a las brasas, cortes de cerdo y chistorra crujiente.",
+          image: "assets/images/espada-pollo.jpg"
+        },
+        {
+          id: "barra-ensaladas-frescas",
+          category: "barra-ensaladas",
+          inFavoritos: false,
+          tag: "Barra Fresca",
+          status: "Ilimitado en Buffet",
+          name: "Barra Gourmet de 16+ Ensaladas, Carnes Frías & Quesos",
+          description: "Amplia selección de ensaladas frescas del día, aderezos de la casa, vegetales al grill, tabla de quesos, carnes frías y ceviche de mariscos en fin de semana.",
+          image: "assets/images/barra_ensaladas_pizzas.jpg"
+        },
+        {
+          id: "barra-guarniciones-calientes",
+          category: "barra-guarniciones",
+          inFavoritos: false,
+          tag: "Tradición Brasileña",
+          status: "Ilimitado en Buffet",
+          name: "Feijoada Brasileña, Pastas, Pan de Queso & Guarniciones",
+          description: "Complementa tus cortes con nuestra tradicional feijoada brasileña, pastas cremosas, arroz, plátano macho frito, puré, pan de queso caliente y piña asada con canela.",
+          image: "assets/images/barra_ensaladas_pizzas.jpg"
+        },
+        {
+          id: "pizzas-dulces-sushi",
+          category: "pizzas-sushi",
+          inFavoritos: false,
+          tag: "Horno & Barra",
+          status: "Ilimitado en Buffet",
+          name: "Pizzas Brasileñas Dulces y Saladas & Rollos de Sushi",
+          description: "Variedad de rollos de sushi preparados al día y nuestras famosas pizzas artesanales saladas y dulces (chocolate con fresa y plátano con dulce de leche).",
+          image: "assets/images/barra_ensaladas_pizzas.jpg"
+        },
+        {
+          id: "barra-bebidas-cava",
+          category: "barra-bebidas",
+          inFavoritos: false,
+          tag: "Bar & Bebidas",
+          status: "Carta de Bar",
+          name: "Caipirinhas, Cava de Vinos, Cocktails & Cervezas",
+          description: "Caipirinhas brasileñas preparadas con fruta fresca, selección de vinos tintos (Malbec, Cabernet, Merlot), carajillos, destilados y cervezas bien frías.",
+          image: "assets/images/cava_cocteles.jpg"
+        }
+      ],
+      seasonalSlides: [
+        {
+          eyebrow: "🦐 Especial de Fin de Semana en Comedor",
+          title: "Ceviche de Mariscos & Espada de Camarones y Pescado al Carbón",
+          description: "Disfruta nuestra especialidad del mar: fresco ceviche de mariscos en barra y desfile de espada de camarones y pescado asados al carbón. Disponible exclusivamente Sábados y Domingos a solo $295.",
+          badge: "Sábados y Domingos • A solo $295",
+          image: "assets/images/especialidades_temporada.jpg"
+        },
+        {
+          eyebrow: "🍕 Del Horno a tu Mesa",
+          title: "Pizzas Brasileñas Dulces & Piña Caramelizada con Canela",
+          description: "Prueba la combinación que enamora a Durango: pizza recién horneada de chocolate fundido con fresas frescas, plátano con dulce de leche y nuestra piña asada en espada.",
+          badge: "Receta Original Brasileña",
+          image: "assets/images/barra_ensaladas_pizzas.jpg"
+        },
+        {
+          eyebrow: "🍷 Noches de Cava & Mixología",
+          title: "Maridaje de Vinos Tintos, Caipirinhas & Cerveza Helada",
+          description: "Descubre nuestra cava de vinos tintos seleccionados para resaltar cada corte de Picaña, o disfruta de nuestras Caipirinhas de frutos rojos, maracuyá y limón.",
+          badge: "Barra Completa Disponible",
+          image: "assets/images/cava_cocteles.jpg"
+        }
+      ]
+    };
+
+    let currentFilter = 'todos';
+    let currentSlideIndex = 0;
+
+    // Renderizar catálogo de productos/cortes (en 'todos' muestra únicamente las 3 fichas principales)
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const items = GALPAO_CONFIG.products.filter(p =>
+        currentFilter === 'todos' ? p.inFavoritos : p.category === currentFilter
+      );
+
+      grid.innerHTML = items.map(item => `
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="${item.image}" alt="${item.name}">
+            <span class="product-badge-top">${item.tag}</span>
+            <span class="product-status-pill">${item.status}</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <h3>${item.name}</h3>
+              <p>${item.description}</p>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterMenu(category, btnEl) {
+      currentFilter = category;
+      document.querySelectorAll('#menuFilterTabs .filter-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+      renderProducts();
+    }
+
+    // Semáforo Interactivo del Rodízio (mantiene exactamente el mismo tamaño de bloque)
+    let isDiscoGreen = true;
+    function toggleDisco() {
+      isDiscoGreen = !isDiscoGreen;
+      const disco = document.getElementById('tableDisco');
+      const label = document.getElementById('discoLabel');
+      const title = document.getElementById('discoStatusTitle');
+      const desc = document.getElementById('discoStatusDesc');
+
+      if (isDiscoGreen) {
+        disco.classList.remove('is-red');
+        label.textContent = 'VERDE';
+        title.textContent = '¡Disco en Verde! Que sigan desfilando las espadas';
+        desc.textContent = 'Nuestros maestros espaderos se acercarán continuamente a tu mesa con Picaña, Sirloin, Costilla, Filete Mignon y más.';
+      } else {
+        disco.classList.add('is-red');
+        label.textContent = 'ROJO';
+        title.textContent = 'Disco en Rojo: Pausa para disfrutar tu plato y brindar';
+        desc.textContent = 'Disfruta con calma tu corte, tu bebida o la barra de ensaladas; gíralo de nuevo a verde cuando quieras más espadas.';
+      }
+    }
+
+    // Carrusel de Especialidades de Temporada
+    function renderCarousel() {
+      const container = document.getElementById('seasonalCarousel');
+      const dots = document.getElementById('carouselDots');
+
+      container.innerHTML = GALPAO_CONFIG.seasonalSlides.map((s, idx) => `
+        <div class="carousel-slide ${idx === currentSlideIndex ? 'active' : ''}">
+          <div class="slide-media">
+            <img src="${s.image}" alt="${s.title}">
+          </div>
+          <div class="slide-info">
+            <span class="eyebrow-tag">${s.eyebrow}</span>
+            <h3 style="font-family: var(--font-display); font-size: 2.1rem; margin-bottom: 14px; line-height: 1.12;">
+              ${s.title}
+            </h3>
+            <p style="color: var(--text-cream-muted); font-size: 1rem; margin-bottom: 24px;">
+              ${s.description}
+            </p>
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+              <span class="sizzle-badge" style="margin-bottom: 0;">★ ${s.badge}</span>
+              <a href="#reservar" class="btn-gold-pill">Probar Hoy en Comedor ↗</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      dots.innerHTML = GALPAO_CONFIG.seasonalSlides.map((_, idx) => `
+        <div class="c-dot ${idx === currentSlideIndex ? 'active' : ''}" onclick="goToSlide(${idx})"></div>
+      `).join('');
+    }
+
+    function moveSlide(step) {
+      const total = GALPAO_CONFIG.seasonalSlides.length;
+      currentSlideIndex = (currentSlideIndex + step + total) % total;
+      renderCarousel();
+    }
+
+    function goToSlide(idx) {
+      currentSlideIndex = idx;
+      renderCarousel();
+    }
+
+    // Cotizador de Banquetes VIP a Domicilio
+    function updateVipQuote() {
+      const type = document.getElementById('vipEventType').value;
+      const guests = document.getElementById('vipGuests').value;
+      const pkg = document.getElementById('vipPackage').value;
+      const date = document.getElementById('vipDate').value;
+
+      document.getElementById('guestCountDisplay').textContent = `${guests} Invitados`;
+      const dateStr = date ? ` • Fecha: ${date}` : '';
+      document.getElementById('vipSummaryText').textContent =
+        `${type} para ${guests} comensales • ${pkg}${dateStr} • Incluye maestros espaderos y parrilla al carbón a domicilio.`;
+    }
+
+    function sendVipQuoteWhatsApp() {
+      const type = document.getElementById('vipEventType').value;
+      const guests = document.getElementById('vipGuests').value;
+      const pkg = document.getElementById('vipPackage').value;
+      const date = document.getElementById('vipDate').value || 'Por definir';
+
+      const msg = `Hola Galpão do Brasil Durango, me interesa cotizar un *Banquete VIP de Espadas a Domicilio*:\n\n` +
+                  `• *Tipo de Evento:* ${type}\n` +
+                  `• *Invitados:* ${guests} personas\n` +
+                  `• *Paquete:* ${pkg}\n` +
+                  `• *Fecha tentativa:* ${date}\n\n` +
+                  `¿Me podrían brindar información de precios y disponibilidad?`;
+
+      window.open(`https://wa.me/${GALPAO_CONFIG.whatsappComedor}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Reservación Rápida de Comedor
+    function sendComedorReservation() {
+      const name = document.getElementById('resName').value || 'Cliente Galpão';
+      const people = document.getElementById('resPeople').value;
+      const time = document.getElementById('resTime').value || 'Hoy';
+      const occasion = document.getElementById('resOccasion').value;
+
+      const msg = `Hola Galpão do Brasil Durango, quiero *Reservar una Mesa en Comedor*:\n\n` +
+                  `• *Nombre:* ${name}\n` +
+                  `• *Personas:* ${people}\n` +
+                  `• *Fecha y Hora:* ${time}\n` +
+                  `• *Motivo:* ${occasion}\n\n` +
+                  `Quedo atento a la confirmación de mi mesa.`;
+
+      window.open(`https://wa.me/${GALPAO_CONFIG.whatsappComedor}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Ventana Emergente (Modal) de Facturación Rápida en Línea (CFDI 4.0)
+    function openFacturacionModal() {
+      const modal = document.getElementById('facturacionModal');
+      if (!modal) return;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        const rfcInput = document.getElementById('facRfc');
+        if (rfcInput) rfcInput.focus();
+      }, 150);
+    }
+
+    function closeFacturacionModal() {
+      const modal = document.getElementById('facturacionModal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeFacturacionModal();
+    });
+
+    function sendFacturacionWhatsApp() {
+      const rfc = (document.getElementById('facRfc').value || 'Por indicar').trim().toUpperCase();
+      const cp = (document.getElementById('facCp').value || 'Por indicar').trim();
+      const razon = (document.getElementById('facRazon').value || 'Por indicar').trim();
+      const regimen = document.getElementById('facRegimen').value;
+      const uso = document.getElementById('facUso').value;
+      const ticket = (document.getElementById('facTicket').value || 'Por adjuntar foto de ticket').trim();
+      const monto = (document.getElementById('facMonto').value || 'Por indicar').trim();
+      const email = (document.getElementById('facEmail').value || 'Por indicar').trim();
+
+      const msg = `Hola Galpão do Brasil Durango, solicito mi *Factura en Línea (CFDI 4.0)*:\n\n` +
+                  `• *RFC:* ${rfc}\n` +
+                  `• *Razón Social / Nombre:* ${razon}\n` +
+                  `• *Código Postal Fiscal:* ${cp}\n` +
+                  `• *Régimen Fiscal:* ${regimen}\n` +
+                  `• *Uso de CFDI:* ${uso}\n` +
+                  `• *No. de Ticket / Fecha:* ${ticket}\n` +
+                  `• *Monto y Forma de Pago:* ${monto}\n` +
+                  `• *Correo para PDF y XML:* ${email}\n\n` +
+                  `Quedo atento a mis archivos fiscales. ¡Gracias!`;
+
+      window.open(`https://wa.me/${GALPAO_CONFIG.whatsappComedor}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Menú desplegable para versión Móvil y Tablet
+    function toggleMobileMenu() {
+      const menu = document.getElementById('navLinksMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (!menu) return;
+      const isOpen = menu.classList.toggle('mobile-open');
+      if (btn) btn.textContent = isOpen ? '✕' : '☰';
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('navLinksMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (menu) menu.classList.remove('mobile-open');
+      if (btn) btn.textContent = '☰';
+    }
+
+    // Desplazamiento horizontal interactivo de Fichas de Precios y Promos (Versión Móvil / Tablet)
+    let currentPricingIndex = 0;
+
+    function getPricingCards() {
+      const grid = document.getElementById('pricingGrid');
+      return grid ? Array.from(grid.querySelectorAll('.price-card-clean')) : [];
+    }
+
+    function updatePricingDots(activeIndex) {
+      currentPricingIndex = activeIndex;
+      const dots = document.querySelectorAll('#pricingMobileDots .pricing-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIndex);
+      });
+    }
+
+    function scrollToPricingCard(index) {
+      const grid = document.getElementById('pricingGrid');
+      const cards = getPricingCards();
+      if (!grid || !cards.length) return;
+      const clampedIndex = (index + cards.length) % cards.length;
+      const targetCard = cards[clampedIndex];
+      const scrollLeftTarget = targetCard.offsetLeft - grid.offsetLeft - (grid.clientWidth - targetCard.offsetWidth) / 2;
+      grid.scrollTo({
+        left: Math.max(0, scrollLeftTarget),
+        behavior: 'smooth'
+      });
+      updatePricingDots(clampedIndex);
+    }
+
+    function scrollPricingMobile(step) {
+      const cards = getPricingCards();
+      if (!cards.length) return;
+      const nextIndex = (currentPricingIndex + step + cards.length) % cards.length;
+      scrollToPricingCard(nextIndex);
+    }
+
+    function initPricingMobileSlider() {
+      const grid = document.getElementById('pricingGrid');
+      if (!grid) return;
+
+      grid.addEventListener('scroll', () => {
+        const cards = getPricingCards();
+        if (!cards.length) return;
+        const gridCenter = grid.scrollLeft + grid.clientWidth / 2;
+        let closestIdx = 0;
+        let minDistance = Infinity;
+
+        cards.forEach((card, idx) => {
+          const cardCenter = (card.offsetLeft - grid.offsetLeft) + card.offsetWidth / 2;
+          const dist = Math.abs(gridCenter - cardCenter);
+          if (dist < minDistance) {
+            minDistance = dist;
+            closestIdx = idx;
+          }
+        });
+
+        updatePricingDots(closestIdx);
+      }, { passive: true });
+    }
+
+    // Desplazamiento suave (Smooth Scroll) al regresar al inicio y entre todas las secciones del menú
+    function initSmoothScroll() {
+      document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        const targetId = anchor.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl && targetId !== '#inicio') return;
+
+        e.preventDefault();
+        closeMobileMenu();
+
+        const navHeight = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 78;
+        const startY = window.pageYOffset;
+        const targetY = targetId === '#inicio'
+          ? 0
+          : Math.max(0, targetEl.getBoundingClientRect().top + startY - navHeight + 6);
+
+        const distance = targetY - startY;
+        const duration = Math.min(900, Math.max(480, Math.abs(distance) * 0.45));
+        let startTime = null;
+
+        function easeInOutCubic(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else if (history.pushState) {
+            history.pushState(null, null, targetId);
+          }
+        }
+
+        requestAnimationFrame(step);
+      });
+    }
+
+    // Efecto Navbar al hacer Scroll & Animación de Chispas / Destellos de Brasa sobre fondo01.jpg
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    function initEmbersCanvas() {
+      const canvas = document.getElementById('embersCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      const colors = [
+        { r: 255, g: 215, b: 90 },  // Destello oro brillante
+        { r: 245, g: 184, b: 46 },  // Oro brasileño
+        { r: 255, g: 120, b: 35 },  // Chispa naranja fuego
+        { r: 224, g: 79,  b: 38 }   // Brasa rojiza
+      ];
+
+      // 65 partículas entre chispas ascendentes detrás de la picaña y destellos en todo el Hero
+      const particles = Array.from({ length: 65 }, (_, idx) => {
+        const isCoreFire = idx < 38; // Más concentradas detrás de la picaña flotante
+        const c = colors[Math.floor(Math.random() * colors.length)];
+        return {
+          isCoreFire,
+          x: isCoreFire ? (w * 0.14 + Math.random() * (w * 0.36)) : (Math.random() * w),
+          y: Math.random() * h,
+          r: isCoreFire ? (Math.random() * 3.2 + 1.1) : (Math.random() * 2.4 + 0.8),
+          vy: -(Math.random() * 1.15 + 0.35),
+          vx: (Math.random() - 0.5) * 0.65,
+          alpha: Math.random() * 0.75 + 0.25,
+          pulseSpeed: Math.random() * 0.04 + 0.015,
+          phase: Math.random() * Math.PI * 2,
+          color: c
+        };
+      });
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          p.y += p.vy;
+          p.x += p.vx + Math.sin(p.phase) * 0.25;
+          p.phase += p.pulseSpeed;
+
+          if (p.y < -10) {
+            p.y = h + 10;
+            p.x = p.isCoreFire ? (w * 0.14 + Math.random() * (w * 0.36)) : (Math.random() * w);
+          }
+
+          const currentAlpha = Math.max(0.15, Math.min(1, p.alpha + Math.sin(p.phase) * 0.25));
+
+          // Halo de destello suave alrededor de cada chispa
+          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.2);
+          grad.addColorStop(0, `rgba(255, 250, 220, ${currentAlpha})`);
+          grad.addColorStop(0.35, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${currentAlpha * 0.85})`);
+          grad.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 3.2, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      renderCarousel();
+      initEmbersCanvas();
+      initSmoothScroll();
+      initPricingMobileSlider();
+    });
+  </script>
+</body>
+</html>
